@@ -1,4 +1,4 @@
-# MFP3D: Monocular Food Portion Estimation Leveraging 3D Point Clouds
+# MFP3D: Monocular Food Portion Estimation Leveraging 3D Point Clouds, ICPR(2024), MADiMa[Oral]
 
 This repository provides the training and testing workflow for MFP3D, targeting monocular food portion estimation (e.g., volume, energy, and related nutrition attributes) with fused 2D RGB and 3D point cloud features.
 
