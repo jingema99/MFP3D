@@ -60,6 +60,8 @@ python -c "import torch, h5py, numpy; print('ok')"
 
 ## 4. Data Format
 
+
+
 Each sample in `data/gt/train.h5` and `data/gt/test.h5` contains:
 
 - Inputs:
@@ -74,7 +76,7 @@ Each sample in `data/gt/train.h5` and `data/gt/test.h5` contains:
   - `fat`
   - `carb`
 
-`dataset.py` automatically filters invalid target values (e.g., `NaN`).
+For access to the full unprocessed dataset, please visit MetaFood3D: https://lorenz.ecn.purdue.edu/~food3d/
 
 ## 5. Training Examples
 
