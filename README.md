@@ -4,7 +4,7 @@ This repository provides the training and testing workflow for MFP3D, targeting 
 
 **For access to the full unprocessed dataset, please visit MetaFood3D: https://lorenz.ecn.purdue.edu/~food3d/**
 
-Paper: https://arxiv.org/pdf/2411.10492](https://arxiv.org/pdf/2411.10492
+Paper: https://arxiv.org/pdf/2411.10492
 
 ## 1. Overview
 
