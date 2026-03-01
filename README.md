@@ -94,7 +94,7 @@ Default settings in `run.sh`:
 - `EPOCHS="200"`
 - `DATA_DIR="./data/gt"`
 
-### 5.2 Manual training
+### 5.2 Customized training commands
 
 ```bash
 conda run --no-capture-output -n myenv python train.py \
