@@ -24,6 +24,8 @@ MFP3D/
 │   ├── gt/
 │   │   ├── train.h5
 │   │   └── test.h5
+│   ├── depth
+│   ├── tripoSR
 │   └── data_visualization.ipynb
 ├── dataset.py
 ├── model.py
