@@ -8,6 +8,8 @@ Paper: https://arxiv.org/pdf/2411.10492
 
 ## 1. Overview
 
+![MFP3D Overview](./overview.png)
+
 MFP3D combines two complementary modalities:
 
 - 2D RGB image features (appearance, texture, category cues)
