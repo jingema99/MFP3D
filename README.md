@@ -1,6 +1,6 @@
 # MFP3D
 
-This repository provides the training and testing workflow for MFP3D, targeting monocular food portion estimation with fused 2D RGB and 3D point cloud features (e.g., volume, energy, and related nutrition attributes).
+This repository provides the training and testing workflow for MFP3D, targeting monocular food portion estimation (e.g., volume, energy, and related nutrition attributes) with fused 2D RGB and 3D point cloud features.
 
 Paper:  
 **MFP3D: Monocular Food Portion Estimation Leveraging 3D Point Clouds**  
