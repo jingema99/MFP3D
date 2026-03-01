@@ -1,0 +1,12 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# Jupyter cache/checkpoints
+.ipynb_checkpoints/
+
+# Training outputs
+outputs/
+
+# Ignore all H5 datasets/checkpoints
+*.h5
