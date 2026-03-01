@@ -149,3 +149,18 @@ Visualization notebook:
 - `data/data_visualization.ipynb`
 
 It displays one sample's point cloud, image, and nutrition values for quick data inspection and debugging.
+
+## 10. Citation
+
+If you find this repository useful, please cite:
+
+```bibtex
+@inproceedings{ma2024mfp3d,
+  title={Mfp3d: Monocular food portion estimation leveraging 3d point clouds},
+  author={Ma, Jinge and Zhang, Xiaoyan and Vinod, Gautham and Raghavan, Siddeshwar and He, Jiangpeng and Zhu, Fengqing},
+  booktitle={International Conference on Pattern Recognition},
+  pages={49--62},
+  year={2024},
+  organization={Springer}
+}
+```
