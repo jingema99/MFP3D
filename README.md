@@ -2,7 +2,8 @@
 
 This repository provides the training and testing workflow for MFP3D, targeting monocular food portion estimation (e.g., volume, energy, and related nutrition attributes) with fused 2D RGB and 3D point cloud features.
 
-**For access to the full unprocessed dataset, please visit MetaFood3D: https://lorenz.ecn.purdue.edu/~food3d/**
+**For the preprocessed datasets used in the paper, please download here: https://drive.google.com/drive/folders/1LLnCdxC_piPKTw2H0LsCxNu3hHkHfB6u?usp=sharing**
+**For access to the full raw dataset, please visit MetaFood3D: https://lorenz.ecn.purdue.edu/~food3d/**
 
 Paper: https://arxiv.org/pdf/2411.10492
 
@@ -20,7 +21,7 @@ This implementation follows the paper's high-level design (reconstruction -> fea
 
 ## 2. Repository Structure
 
-**For the preprocessed datasets used in the paper, please download here: https://drive.google.com/drive/folders/1LLnCdxC_piPKTw2H0LsCxNu3hHkHfB6u?usp=sharing**
+
 ```text
 MFP3D/
 ├── data/
