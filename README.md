@@ -37,7 +37,7 @@ MFP3D/
 └── README.md
 ```
 
-## 3. Environment Setup (`myenv`)
+## 3. Environment Setup
 
 Recommended setup:
 
@@ -61,7 +61,6 @@ python -c "import torch, h5py, numpy; print('ok')"
 ```
 
 ## 4. Data Format
-
 
 
 Each sample in `data/gt/train.h5` and `data/gt/test.h5` contains:
@@ -127,11 +126,6 @@ Outputs are saved as:
 - `outputs/<dataset_name>/<target>/best.pt`
 - `outputs/<dataset_name>/<target>/pred_<target>.csv` (optional during testing)
 
-Example:
-
-- `outputs/gt/volume/train.log`
-- `outputs/gt/volume/best.pt`
-- `outputs/gt/volume/pred_volume.csv`
 
 ## 8. Key Arguments
 
@@ -148,7 +142,7 @@ Visualization notebook:
 
 - `data/data_visualization.ipynb`
 
-It displays one sample's point cloud, image, and nutrition values for quick data inspection and debugging.
+It displays one sample's point cloud, image, and nutrition values.
 
 ## 10. Citation
 
