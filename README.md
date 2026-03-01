@@ -20,6 +20,7 @@ This implementation follows the paper's high-level design (reconstruction -> fea
 
 ## 2. Repository Structure
 
+**For the preprocessed datasets used in the paper, please download here: https://drive.google.com/drive/folders/1LLnCdxC_piPKTw2H0LsCxNu3hHkHfB6u?usp=sharing**
 ```text
 MFP3D/
 ├── data/
@@ -61,7 +62,6 @@ python -c "import torch, h5py, numpy; print('ok')"
 ```
 
 ## 4. Data Format
-
 
 Each sample in `data/gt/train.h5` and `data/gt/test.h5` contains:
 
