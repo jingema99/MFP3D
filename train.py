@@ -182,16 +182,16 @@ def main() -> None:
                 )
 
             train_mae = train_loss_sum / max(train_count, 1)
-            val_mae, val_mape = evaluate(model, test_loader, device)
+            test_mae, test_mape = evaluate(model, test_loader, device)
             epoch_msg = (
                 f"Epoch {epoch:03d} | train_mae={train_mae:.4f} "
-                f"| val_mae={val_mae:.4f} | val_mape={val_mape:.2f}%"
+                f"| test_mae={test_mae:.4f} | test_mape={test_mape:.2f}%"
             )
             if use_compact and not use_tqdm:
                 # Non-TTY fallback: one updating line per epoch progress.
                 status = (
                     f"\rEpoch {epoch:03d}/{args.epochs:03d} "
-                    f"train_mae={train_mae:.4f} val_mae={val_mae:.4f} val_mape={val_mape:.2f}%"
+                    f"train_mae={train_mae:.4f} test_mae={test_mae:.4f} test_mape={test_mape:.2f}%"
                 )
                 sys.stdout.write(status)
                 sys.stdout.flush()
@@ -205,12 +205,12 @@ def main() -> None:
             if use_tqdm:
                 epoch_bar.set_postfix(
                     train_mae=f"{train_mae:.4f}",
-                    val_mae=f"{val_mae:.4f}",
-                    val_mape=f"{val_mape:.2f}%",
+                    test_mae=f"{test_mae:.4f}",
+                    test_mape=f"{test_mape:.2f}%",
                 )
 
-            if val_mape < best_mape:
-                best_mape = val_mape
+            if test_mape < best_mape:
+                best_mape = test_mape
                 torch.save(
                     {
                         "model_state_dict": model.state_dict(),
@@ -228,8 +228,8 @@ def main() -> None:
             sys.stdout.write("\n")
             sys.stdout.flush()
         if not use_compact:
-            print(f"Done. Best val_mape={best_mape:.2f}%")
-        log(f"Done. Best val_mape={best_mape:.2f}%")
+            print(f"Done. Best test_mape={best_mape:.2f}%")
+        log(f"Done. Best test_mape={best_mape:.2f}%")
     finally:
         log_f.close()
 

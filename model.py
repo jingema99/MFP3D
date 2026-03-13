@@ -2,6 +2,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import torchvision.models as models
+from torchvision.models import ResNet50_Weights
 
 from curvenet_util import CIC, LPFA
 
@@ -151,7 +152,7 @@ class PointEncoder(nn.Module):
 class ImageEncoder(nn.Module):
     def __init__(self, out_dim: int = 512) -> None:
         super().__init__()
-        resnet = models.resnet50(weights=None)
+        resnet = models.resnet50(weights=ResNet50_Weights.IMAGENET1K_V1)
         self.backbone = nn.Sequential(*list(resnet.children())[:-2])
         self.fc = nn.Linear(2048, out_dim)
 
@@ -168,12 +169,7 @@ class PointImageRegressor(nn.Module):
         super().__init__()
         self.point_encoder = PointEncoder(out_dim=512)
         self.image_encoder = ImageEncoder(out_dim=512)
-        self.regressor = nn.Sequential(
-            nn.Linear(512 + 512, 256),
-            nn.ReLU(inplace=True),
-            nn.Dropout(p=0.2),
-            nn.Linear(256, 1),
-        )
+        self.regressor = nn.Linear(512 + 512, 1)
 
     def forward(self, points: torch.Tensor, images: torch.Tensor) -> torch.Tensor:
         p = self.point_encoder(points)
