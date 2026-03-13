@@ -119,8 +119,10 @@ def main() -> None:
     optimizer = torch.optim.AdamW(model.parameters(), lr=args.lr, weight_decay=args.weight_decay)
     criterion = nn.L1Loss()
 
+    best_mae = float("inf")
     best_mape = float("inf")
-    best_path = os.path.join(run_dir, "best.pt")
+    best_mae_path = os.path.join(run_dir, "best_mae.pt")
+    best_mape_path = os.path.join(run_dir, "best_mape.pt")
 
     log_f = open(log_path, "a", encoding="utf-8")
 
@@ -209,18 +211,35 @@ def main() -> None:
                     test_mape=f"{test_mape:.2f}%",
                 )
 
+            if test_mae < best_mae:
+                best_mae = test_mae
+                torch.save(
+                    {
+                        "model_state_dict": model.state_dict(),
+                        "target": args.target,
+                        "best_mae": best_mae,
+                        "best_mape": best_mape,
+                    },
+                    best_mae_path,
+                )
+                log(
+                    f"Saved best-MAE checkpoint to {best_mae_path}",
+                    also_print=(not use_compact),
+                )
+
             if test_mape < best_mape:
                 best_mape = test_mape
                 torch.save(
                     {
                         "model_state_dict": model.state_dict(),
                         "target": args.target,
+                        "best_mae": best_mae,
                         "best_mape": best_mape,
                     },
-                    best_path,
+                    best_mape_path,
                 )
                 log(
-                    f"Saved best checkpoint to {best_path}",
+                    f"Saved best-MAPE checkpoint to {best_mape_path}",
                     also_print=(not use_compact),
                 )
 
@@ -228,8 +247,8 @@ def main() -> None:
             sys.stdout.write("\n")
             sys.stdout.flush()
         if not use_compact:
-            print(f"Done. Best test_mape={best_mape:.2f}%")
-        log(f"Done. Best test_mape={best_mape:.2f}%")
+            print(f"Done. Best test_mae={best_mae:.4f}, best test_mape={best_mape:.2f}%")
+        log(f"Done. Best test_mae={best_mae:.4f}, best test_mape={best_mape:.2f}%")
     finally:
         log_f.close()
 
