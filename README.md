@@ -1,8 +1,10 @@
-# MFP3D: Monocular Food Portion Estimation Leveraging 3D Point Clouds
+# MFP3D: Monocular Food Portion Estimation Leveraging 3D Point Clouds, ICPR, MADiMa[Oral], 2024
 
 This repository provides the training and testing workflow for MFP3D, targeting monocular food portion estimation (e.g., volume, energy, and related nutrition attributes) with fused 2D RGB and 3D point cloud features.
 
-**For access to the full unprocessed dataset, please visit MetaFood3D: https://lorenz.ecn.purdue.edu/~food3d/**
+**For the preprocessed datasets used in the paper, please download here: https://drive.google.com/drive/folders/1LLnCdxC_piPKTw2H0LsCxNu3hHkHfB6u?usp=sharing**
+
+**For access to the full raw dataset, please visit MetaFood3D: https://lorenz.ecn.purdue.edu/~food3d/**
 
 Paper: https://arxiv.org/pdf/2411.10492
 
@@ -19,6 +21,7 @@ The fused representation is then passed to a regression head to predict target a
 This implementation follows the paper's high-level design (reconstruction -> feature extraction -> regression), and focuses on feature extraction + regression training/evaluation using prepared H5 data.
 
 ## 2. Repository Structure
+
 
 ```text
 MFP3D/
@@ -62,7 +65,6 @@ python -c "import torch, h5py, numpy; print('ok')"
 
 ## 4. Data Format
 
-
 Each sample in `data/gt/train.h5` and `data/gt/test.h5` contains:
 
 - Inputs:
@@ -92,7 +94,7 @@ Default settings in `run.sh`:
 - `EPOCHS="200"`
 - `DATA_DIR="./data/gt"`
 
-### 5.2 Manual training
+### 5.2 Customized training commands
 
 ```bash
 conda run --no-capture-output -n myenv python train.py \
